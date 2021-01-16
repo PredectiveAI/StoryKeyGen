@@ -104,8 +104,16 @@ class application_window():
                           "gender_pronoun" : self.get_pronoun,
                           "category_logic" : self.get_category_logic,
                           "also-1" : self.get_also1_logic,
-                          "also-2" : self.get_also2_logic
-
+                          "also-2" : self.get_also2_logic,
+                          "category-1" : self.get_category_1,
+                          "category-2" : self.get_category_2,
+                          "category-3" : self.get_category_3,
+                          "category-4" : self.get_category_4,
+                          "category-5" : self.get_category_5,
+                          "category-6" : self.get_category_6,
+                          "category-7" : self.get_category_7,
+                          "category-8" : self.get_category_8,
+                          "category-9" : self.get_category_9
                           }
 
         self.idx = 0
@@ -247,7 +255,42 @@ class application_window():
       return self.location
 
     def get_category_logic(self):
+      self.category_logic = []
+      tot_cat = [self.category_1,self.category_2,self.category_3,self.category_4,self.category_5,self.category_6,self.category_7,self.category_8,self.category_9]
+      for cat in tot_cat:
+        if cat!=cat:
+          pass
+        else:
+          self.category_logic.append(cat)
       return self.category_logic
+
+
+    def get_category_1(self):
+      return self.category_1
+    
+    def get_category_2(self):
+      return self.category_2
+
+    def get_category_3(self):
+      return self.category_3
+
+    def get_category_4(self):
+      return self.category_4
+
+    def get_category_5(self):
+      return self.category_5
+    def get_category_6(self):
+      return self.category_6
+
+    def get_category_7(self):
+      return self.category_7
+
+    def get_category_8(self):
+      return self.category_8
+
+    def get_category_9(self):
+      return self.category_9
+
 
 
 
@@ -257,6 +300,17 @@ class application_window():
       self.df_test_sheet = pd.read_excel(self.test_sheet)
 
       self.df_structure_logic = pd.read_excel(self.structure_logic_sheet)
+
+      self.category_1 = self.df_structure_logic['Category-1'].values[0]
+      self.category_2 = self.df_structure_logic['Category-2'].values[0]
+      self.category_3 = self.df_structure_logic['Category-3'].values[0]
+      self.category_4 = self.df_structure_logic['Category-4'].values[0]
+      self.category_5 = self.df_structure_logic['Category-5'].values[0]
+      self.category_6 = self.df_structure_logic['Category-6'].values[0]
+      self.category_7 = self.df_structure_logic['Category-7'].values[0]
+      self.category_8 = self.df_structure_logic['Category-8'].values[0]
+      self.category_9 = self.df_structure_logic['Category-9'].values[0]
+
 
       self.clb_choice = self.df_structure_logic['Clubbing logic'].values
 
