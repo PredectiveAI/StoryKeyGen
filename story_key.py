@@ -262,7 +262,7 @@ class application_window():
           pass
         else:
           self.category_logic.append(cat)
-      return self.category_logic
+      return self.category_logic.join(',')
 
 
     def get_category_1(self):
