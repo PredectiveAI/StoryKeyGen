@@ -769,35 +769,44 @@ class application_window():
       return sent
 
     def gramarize(self,sent):
-      test_str = sent
-      splitter = SentenceSplitter(language='en')
-      sente = splitter.split(text=test_str)
-      gram_sent = []
 
-      for sent in sente:
-        parser = GingerIt()
+      f = open('Value-json/logic_activation.json') 
+      activation = json.load(f)
+      if activation['grammar_logic'] == "active":
+        test_str = sent
+        splitter = SentenceSplitter(language='en')
+        sente = splitter.split(text=test_str)
+        gram_sent = []
 
-        output = parser.parse(sent)
-        output_1 = (output.get("result"))
-        output_1 = output_1 
-        gram_sent.append(output_1)
+        for sent in sente:
+          parser = GingerIt()
 
-      f_output = ' '.join(gram_sent)
+          output = parser.parse(sent)
+          output_1 = (output.get("result"))
+          output_1 = output_1 
+          gram_sent.append(output_1)
 
-
-      if f_output[-1] == '.' and f_output[-2] == '.':
-        f_output = f_output[:-2]
-
-
+        f_output = ' '.join(gram_sent)
 
 
-      
-      f_output = f_output + '.'
+        if f_output[-1] == '.' and f_output[-2] == '.':
+          f_output = f_output[:-2]
 
-      f_output = self.remove_trailing_dots(f_output)
-      f_output = f_output.replace('..','.')
 
-      return f_output
+
+
+        
+        f_output = f_output + '.'
+
+        f_output = self.remove_trailing_dots(f_output)
+        f_output = f_output.replace('..','.')
+
+        return f_output
+
+
+      else:
+        return sent
+    
 
 
 
