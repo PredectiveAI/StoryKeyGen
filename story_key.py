@@ -198,7 +198,7 @@ class application_window():
             self.get_os()
 
 
-            total_sent = self.os+"." + " "+self.get_data_dict()
+            total_sent = self.os+ "." +"\n"+ " "+self.get_data_dict()
             total_sent = total_sent.replace(' .','')
             total_sent = total_sent.replace("\n\n. ","\n\n")
 
@@ -638,7 +638,7 @@ class application_window():
       
       
 
-      clb_sent =  str(self.get_clb_logic()) + " " +str(",".join(list_of_keys))
+      clb_sent =  str(self.get_clb_logic()) + " " +str("or ".join(list_of_keys))
       return clb_sent
       
     def get_data_dict(self):
